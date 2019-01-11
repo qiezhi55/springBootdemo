@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
+    <result column="is_effect" property="isEffect" jdbcType="BIT" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="id_card_no" property="idCardNo" jdbcType="VARCHAR" />
+    <result column="idcard_passtime" property="idcardPasstime" jdbcType="TIMESTAMP" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="mobile_passTime" property="mobilePasstime" jdbcType="TIMESTAMP" />
+    <result column="mobile_isPass" property="mobileIspass" jdbcType="BIT" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="quota" property="quota" jdbcType="DECIMAL" />
+    <result column="lock_money" property="lockMoney" jdbcType="DECIMAL" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="n_province_id" property="nProvinceId" jdbcType="INTEGER" />
+    <result column="n_city_id" property="nCityId" jdbcType="INTEGER" />
+    <result column="province_id" property="provinceId" jdbcType="INTEGER" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="birth_year" property="birthYear" jdbcType="INTEGER" />
+    <result column="birth_month" property="birthMonth" jdbcType="INTEGER" />
+    <result column="birth_day" property="birthDay" jdbcType="INTEGER" />
+    <result column="adress" property="adress" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="postalcode" property="postalcode" jdbcType="VARCHAR" />
+    <result column="pay_password" property="payPassword" jdbcType="VARCHAR" />
+    <result column="idCar_isPassed" property="idcarIspassed" jdbcType="BIT" />
+    <result column="Credit_level_id" property="creditLevelId" jdbcType="INTEGER" />
+    <result column="loginPassword" property="loginpassword" jdbcType="VARCHAR" />
+    <result column="isBlack" property="isblack" jdbcType="TINYINT" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="current_money" property="currentMoney" jdbcType="DECIMAL" />
+    <result column="current_lock_money" property="currentLockMoney" jdbcType="DECIMAL" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="pigTicket" property="pigticket" jdbcType="DECIMAL" />
+    <result column="pigNum" property="pignum" jdbcType="INTEGER" />
+    <result column="createFrom" property="createfrom" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_name, update_time, login_ip, group_id, is_effect, is_delete, email, id_card_no, 
+    idcard_passtime, real_name, mobile, mobile_passTime, mobile_isPass, score, money, 
+    quota, lock_money, pid, login_time, n_province_id, n_city_id, province_id, city_id, 
+    sex, birth_year, birth_month, birth_day, adress, phone, postalcode, pay_password, 
+    idCar_isPassed, Credit_level_id, loginPassword, isBlack, img_url, current_money, 
+    current_lock_money, last_login_time, create_time, pigTicket, pigNum, createFrom
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.User" >
+    insert into user (id, user_name, update_time, 
+      login_ip, group_id, is_effect, 
+      is_delete, email, id_card_no, 
+      idcard_passtime, real_name, mobile, 
+      mobile_passTime, mobile_isPass, score, 
+      money, quota, lock_money, 
+      pid, login_time, n_province_id, 
+      n_city_id, province_id, city_id, 
+      sex, birth_year, birth_month, 
+      birth_day, adress, phone, 
+      postalcode, pay_password, idCar_isPassed, 
+      Credit_level_id, loginPassword, isBlack, 
+      img_url, current_money, current_lock_money, 
+      last_login_time, create_time, pigTicket, 
+      pigNum, createFrom)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{loginIp,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, #{isEffect,jdbcType=BIT}, 
+      #{isDelete,jdbcType=BIT}, #{email,jdbcType=VARCHAR}, #{idCardNo,jdbcType=VARCHAR}, 
+      #{idcardPasstime,jdbcType=TIMESTAMP}, #{realName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{mobilePasstime,jdbcType=TIMESTAMP}, #{mobileIspass,jdbcType=BIT}, #{score,jdbcType=INTEGER}, 
+      #{money,jdbcType=DECIMAL}, #{quota,jdbcType=DECIMAL}, #{lockMoney,jdbcType=DECIMAL}, 
+      #{pid,jdbcType=INTEGER}, #{loginTime,jdbcType=TIMESTAMP}, #{nProvinceId,jdbcType=INTEGER}, 
+      #{nCityId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{sex,jdbcType=BIT}, #{birthYear,jdbcType=INTEGER}, #{birthMonth,jdbcType=INTEGER}, 
+      #{birthDay,jdbcType=INTEGER}, #{adress,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{postalcode,jdbcType=VARCHAR}, #{payPassword,jdbcType=VARCHAR}, #{idcarIspassed,jdbcType=BIT}, 
+      #{creditLevelId,jdbcType=INTEGER}, #{loginpassword,jdbcType=VARCHAR}, #{isblack,jdbcType=TINYINT}, 
+      #{imgUrl,jdbcType=VARCHAR}, #{currentMoney,jdbcType=DECIMAL}, #{currentLockMoney,jdbcType=DECIMAL}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{pigticket,jdbcType=DECIMAL}, 
+      #{pignum,jdbcType=INTEGER}, #{createfrom,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="isEffect != null" >
+        is_effect,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="idCardNo != null" >
+        id_card_no,
+      </if>
+      <if test="idcardPasstime != null" >
+        idcard_passtime,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="mobilePasstime != null" >
+        mobile_passTime,
+      </if>
+      <if test="mobileIspass != null" >
+        mobile_isPass,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="quota != null" >
+        quota,
+      </if>
+      <if test="lockMoney != null" >
+        lock_money,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="nProvinceId != null" >
+        n_province_id,
+      </if>
+      <if test="nCityId != null" >
+        n_city_id,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthYear != null" >
+        birth_year,
+      </if>
+      <if test="birthMonth != null" >
+        birth_month,
+      </if>
+      <if test="birthDay != null" >
+        birth_day,
+      </if>
+      <if test="adress != null" >
+        adress,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="postalcode != null" >
+        postalcode,
+      </if>
+      <if test="payPassword != null" >
+        pay_password,
+      </if>
+      <if test="idcarIspassed != null" >
+        idCar_isPassed,
+      </if>
+      <if test="creditLevelId != null" >
+        Credit_level_id,
+      </if>
+      <if test="loginpassword != null" >
+        loginPassword,
+      </if>
+      <if test="isblack != null" >
+        isBlack,
+      </if>
+      <if test="imgUrl != null" >
+        img_url,
+      </if>
+      <if test="currentMoney != null" >
+        current_money,
+      </if>
+      <if test="currentLockMoney != null" >
+        current_lock_money,
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="pigticket != null" >
+        pigTicket,
+      </if>
+      <if test="pignum != null" >
+        pigNum,
+      </if>
+      <if test="createfrom != null" >
+        createFrom,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffect != null" >
+        #{isEffect,jdbcType=BIT},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null" >
+        #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPasstime != null" >
+        #{idcardPasstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePasstime != null" >
+        #{mobilePasstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobileIspass != null" >
+        #{mobileIspass,jdbcType=BIT},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="quota != null" >
+        #{quota,jdbcType=DECIMAL},
+      </if>
+      <if test="lockMoney != null" >
+        #{lockMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nProvinceId != null" >
+        #{nProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="nCityId != null" >
+        #{nCityId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="birthYear != null" >
+        #{birthYear,jdbcType=INTEGER},
+      </if>
+      <if test="birthMonth != null" >
+        #{birthMonth,jdbcType=INTEGER},
+      </if>
+      <if test="birthDay != null" >
+        #{birthDay,jdbcType=INTEGER},
+      </if>
+      <if test="adress != null" >
+        #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="postalcode != null" >
+        #{postalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null" >
+        #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="idcarIspassed != null" >
+        #{idcarIspassed,jdbcType=BIT},
+      </if>
+      <if test="creditLevelId != null" >
+        #{creditLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="loginpassword != null" >
+        #{loginpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="isblack != null" >
+        #{isblack,jdbcType=TINYINT},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="currentMoney != null" >
+        #{currentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="currentLockMoney != null" >
+        #{currentLockMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pigticket != null" >
+        #{pigticket,jdbcType=DECIMAL},
+      </if>
+      <if test="pignum != null" >
+        #{pignum,jdbcType=INTEGER},
+      </if>
+      <if test="createfrom != null" >
+        #{createfrom,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.User" >
+    update user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null" >
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffect != null" >
+        is_effect = #{isEffect,jdbcType=BIT},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null" >
+        id_card_no = #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPasstime != null" >
+        idcard_passtime = #{idcardPasstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePasstime != null" >
+        mobile_passTime = #{mobilePasstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobileIspass != null" >
+        mobile_isPass = #{mobileIspass,jdbcType=BIT},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="quota != null" >
+        quota = #{quota,jdbcType=DECIMAL},
+      </if>
+      <if test="lockMoney != null" >
+        lock_money = #{lockMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nProvinceId != null" >
+        n_province_id = #{nProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="nCityId != null" >
+        n_city_id = #{nCityId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="birthYear != null" >
+        birth_year = #{birthYear,jdbcType=INTEGER},
+      </if>
+      <if test="birthMonth != null" >
+        birth_month = #{birthMonth,jdbcType=INTEGER},
+      </if>
+      <if test="birthDay != null" >
+        birth_day = #{birthDay,jdbcType=INTEGER},
+      </if>
+      <if test="adress != null" >
+        adress = #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="postalcode != null" >
+        postalcode = #{postalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null" >
+        pay_password = #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="idcarIspassed != null" >
+        idCar_isPassed = #{idcarIspassed,jdbcType=BIT},
+      </if>
+      <if test="creditLevelId != null" >
+        Credit_level_id = #{creditLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="loginpassword != null" >
+        loginPassword = #{loginpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="isblack != null" >
+        isBlack = #{isblack,jdbcType=TINYINT},
+      </if>
+      <if test="imgUrl != null" >
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="currentMoney != null" >
+        current_money = #{currentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="currentLockMoney != null" >
+        current_lock_money = #{currentLockMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pigticket != null" >
+        pigTicket = #{pigticket,jdbcType=DECIMAL},
+      </if>
+      <if test="pignum != null" >
+        pigNum = #{pignum,jdbcType=INTEGER},
+      </if>
+      <if test="createfrom != null" >
+        createFrom = #{createfrom,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.User" >
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR},
+      is_effect = #{isEffect,jdbcType=BIT},
+      is_delete = #{isDelete,jdbcType=BIT},
+      email = #{email,jdbcType=VARCHAR},
+      id_card_no = #{idCardNo,jdbcType=VARCHAR},
+      idcard_passtime = #{idcardPasstime,jdbcType=TIMESTAMP},
+      real_name = #{realName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      mobile_passTime = #{mobilePasstime,jdbcType=TIMESTAMP},
+      mobile_isPass = #{mobileIspass,jdbcType=BIT},
+      score = #{score,jdbcType=INTEGER},
+      money = #{money,jdbcType=DECIMAL},
+      quota = #{quota,jdbcType=DECIMAL},
+      lock_money = #{lockMoney,jdbcType=DECIMAL},
+      pid = #{pid,jdbcType=INTEGER},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      n_province_id = #{nProvinceId,jdbcType=INTEGER},
+      n_city_id = #{nCityId,jdbcType=INTEGER},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=BIT},
+      birth_year = #{birthYear,jdbcType=INTEGER},
+      birth_month = #{birthMonth,jdbcType=INTEGER},
+      birth_day = #{birthDay,jdbcType=INTEGER},
+      adress = #{adress,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      postalcode = #{postalcode,jdbcType=VARCHAR},
+      pay_password = #{payPassword,jdbcType=VARCHAR},
+      idCar_isPassed = #{idcarIspassed,jdbcType=BIT},
+      Credit_level_id = #{creditLevelId,jdbcType=INTEGER},
+      loginPassword = #{loginpassword,jdbcType=VARCHAR},
+      isBlack = #{isblack,jdbcType=TINYINT},
+      img_url = #{imgUrl,jdbcType=VARCHAR},
+      current_money = #{currentMoney,jdbcType=DECIMAL},
+      current_lock_money = #{currentLockMoney,jdbcType=DECIMAL},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      pigTicket = #{pigticket,jdbcType=DECIMAL},
+      pigNum = #{pignum,jdbcType=INTEGER},
+      createFrom = #{createfrom,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style xmlns:th="http://www.w3.org/1999/xhtml">
+    #tags_tagsinput {
+        background-color: #fafafa;
+        border: 1px solid #eeeeee;
+    }
+    #tags_addTag input {
+        width: 100%;
+    }
+    #tags_addTag {
+        margin-top: -5px;
+    }
+</style>
+<body class="fixed-left">
+<div id="wrapper" th:object="${info}">
+    <p>Profile:<span th:text="'this is  ' +*{profile}">test-profile</span></p>
+    <p>From:<span th:text="'this is  '+*{from}">test-from</span></p>
+    <p>Profile:<span th:text="'this is  ' +*{profile}" th:if="*{profile!=null}">test-profile</span></p>
+</div>
+</body>
+</html>

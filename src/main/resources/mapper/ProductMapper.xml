@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.Product" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="deadline" property="deadline" jdbcType="INTEGER" />
+    <result column="annual_rate" property="annualRate" jdbcType="DOUBLE" />
+    <result column="repayment" property="repayment" jdbcType="INTEGER" />
+    <result column="minamount" property="minamount" jdbcType="DOUBLE" />
+    <result column="tender_sum_ratio" property="tenderSumRatio" jdbcType="DOUBLE" />
+    <result column="upload_information_id" property="uploadInformationId" jdbcType="VARCHAR" />
+    <result column="product_num" property="productNum" jdbcType="VARCHAR" />
+    <result column="service_fee" property="serviceFee" jdbcType="DOUBLE" />
+    <result column="investors_management_fee" property="investorsManagementFee" jdbcType="DOUBLE" />
+    <result column="transfer_management_fee" property="transferManagementFee" jdbcType="DOUBLE" />
+    <result column="investors_rebate" property="investorsRebate" jdbcType="DOUBLE" />
+    <result column="classify" property="classify" jdbcType="INTEGER" />
+    <result column="add_uers_name" property="addUersName" jdbcType="INTEGER" />
+    <result column="audit" property="audit" jdbcType="INTEGER" />
+    <result column="audit_time" property="auditTime" jdbcType="TIMESTAMP" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="audit_remarks" property="auditRemarks" jdbcType="VARCHAR" />
+    <result column="modified_time" property="modifiedTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="tender_status" property="tenderStatus" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="DOUBLE" />
+    <result column="contract_no" property="contractNo" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="INTEGER" />
+    <result column="level_id" property="levelId" jdbcType="INTEGER" />
+    <result column="recommend_item" property="recommendItem" jdbcType="TINYINT" />
+    <result column="financing_deadline" property="financingDeadline" jdbcType="INTEGER" />
+    <result column="full_date" property="fullDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, deadline, annual_rate, repayment, minamount, tender_sum_ratio, upload_information_id, 
+    product_num, service_fee, investors_management_fee, transfer_management_fee, investors_rebate, 
+    classify, add_uers_name, audit, audit_time, add_time, audit_remarks, modified_time, 
+    status, tender_status, amount, contract_no, period, level_id, recommend_item, financing_deadline, 
+    full_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from products
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from products
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.Product" >
+    insert into products (id, name, deadline, 
+      annual_rate, repayment, minamount, 
+      tender_sum_ratio, upload_information_id, product_num, 
+      service_fee, investors_management_fee, transfer_management_fee, 
+      investors_rebate, classify, add_uers_name, 
+      audit, audit_time, add_time, 
+      audit_remarks, modified_time, status, 
+      tender_status, amount, contract_no, 
+      period, level_id, recommend_item, 
+      financing_deadline, full_date)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{deadline,jdbcType=INTEGER}, 
+      #{annualRate,jdbcType=DOUBLE}, #{repayment,jdbcType=INTEGER}, #{minamount,jdbcType=DOUBLE}, 
+      #{tenderSumRatio,jdbcType=DOUBLE}, #{uploadInformationId,jdbcType=VARCHAR}, #{productNum,jdbcType=VARCHAR}, 
+      #{serviceFee,jdbcType=DOUBLE}, #{investorsManagementFee,jdbcType=DOUBLE}, #{transferManagementFee,jdbcType=DOUBLE}, 
+      #{investorsRebate,jdbcType=DOUBLE}, #{classify,jdbcType=INTEGER}, #{addUersName,jdbcType=INTEGER}, 
+      #{audit,jdbcType=INTEGER}, #{auditTime,jdbcType=TIMESTAMP}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{auditRemarks,jdbcType=VARCHAR}, #{modifiedTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{tenderStatus,jdbcType=INTEGER}, #{amount,jdbcType=DOUBLE}, #{contractNo,jdbcType=VARCHAR}, 
+      #{period,jdbcType=INTEGER}, #{levelId,jdbcType=INTEGER}, #{recommendItem,jdbcType=TINYINT}, 
+      #{financingDeadline,jdbcType=INTEGER}, #{fullDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.Product" >
+    insert into products
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="deadline != null" >
+        deadline,
+      </if>
+      <if test="annualRate != null" >
+        annual_rate,
+      </if>
+      <if test="repayment != null" >
+        repayment,
+      </if>
+      <if test="minamount != null" >
+        minamount,
+      </if>
+      <if test="tenderSumRatio != null" >
+        tender_sum_ratio,
+      </if>
+      <if test="uploadInformationId != null" >
+        upload_information_id,
+      </if>
+      <if test="productNum != null" >
+        product_num,
+      </if>
+      <if test="serviceFee != null" >
+        service_fee,
+      </if>
+      <if test="investorsManagementFee != null" >
+        investors_management_fee,
+      </if>
+      <if test="transferManagementFee != null" >
+        transfer_management_fee,
+      </if>
+      <if test="investorsRebate != null" >
+        investors_rebate,
+      </if>
+      <if test="classify != null" >
+        classify,
+      </if>
+      <if test="addUersName != null" >
+        add_uers_name,
+      </if>
+      <if test="audit != null" >
+        audit,
+      </if>
+      <if test="auditTime != null" >
+        audit_time,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="auditRemarks != null" >
+        audit_remarks,
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="tenderStatus != null" >
+        tender_status,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="contractNo != null" >
+        contract_no,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="levelId != null" >
+        level_id,
+      </if>
+      <if test="recommendItem != null" >
+        recommend_item,
+      </if>
+      <if test="financingDeadline != null" >
+        financing_deadline,
+      </if>
+      <if test="fullDate != null" >
+        full_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null" >
+        #{deadline,jdbcType=INTEGER},
+      </if>
+      <if test="annualRate != null" >
+        #{annualRate,jdbcType=DOUBLE},
+      </if>
+      <if test="repayment != null" >
+        #{repayment,jdbcType=INTEGER},
+      </if>
+      <if test="minamount != null" >
+        #{minamount,jdbcType=DOUBLE},
+      </if>
+      <if test="tenderSumRatio != null" >
+        #{tenderSumRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="uploadInformationId != null" >
+        #{uploadInformationId,jdbcType=VARCHAR},
+      </if>
+      <if test="productNum != null" >
+        #{productNum,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFee != null" >
+        #{serviceFee,jdbcType=DOUBLE},
+      </if>
+      <if test="investorsManagementFee != null" >
+        #{investorsManagementFee,jdbcType=DOUBLE},
+      </if>
+      <if test="transferManagementFee != null" >
+        #{transferManagementFee,jdbcType=DOUBLE},
+      </if>
+      <if test="investorsRebate != null" >
+        #{investorsRebate,jdbcType=DOUBLE},
+      </if>
+      <if test="classify != null" >
+        #{classify,jdbcType=INTEGER},
+      </if>
+      <if test="addUersName != null" >
+        #{addUersName,jdbcType=INTEGER},
+      </if>
+      <if test="audit != null" >
+        #{audit,jdbcType=INTEGER},
+      </if>
+      <if test="auditTime != null" >
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditRemarks != null" >
+        #{auditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null" >
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="tenderStatus != null" >
+        #{tenderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=INTEGER},
+      </if>
+      <if test="levelId != null" >
+        #{levelId,jdbcType=INTEGER},
+      </if>
+      <if test="recommendItem != null" >
+        #{recommendItem,jdbcType=TINYINT},
+      </if>
+      <if test="financingDeadline != null" >
+        #{financingDeadline,jdbcType=INTEGER},
+      </if>
+      <if test="fullDate != null" >
+        #{fullDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.Product" >
+    update products
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null" >
+        deadline = #{deadline,jdbcType=INTEGER},
+      </if>
+      <if test="annualRate != null" >
+        annual_rate = #{annualRate,jdbcType=DOUBLE},
+      </if>
+      <if test="repayment != null" >
+        repayment = #{repayment,jdbcType=INTEGER},
+      </if>
+      <if test="minamount != null" >
+        minamount = #{minamount,jdbcType=DOUBLE},
+      </if>
+      <if test="tenderSumRatio != null" >
+        tender_sum_ratio = #{tenderSumRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="uploadInformationId != null" >
+        upload_information_id = #{uploadInformationId,jdbcType=VARCHAR},
+      </if>
+      <if test="productNum != null" >
+        product_num = #{productNum,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceFee != null" >
+        service_fee = #{serviceFee,jdbcType=DOUBLE},
+      </if>
+      <if test="investorsManagementFee != null" >
+        investors_management_fee = #{investorsManagementFee,jdbcType=DOUBLE},
+      </if>
+      <if test="transferManagementFee != null" >
+        transfer_management_fee = #{transferManagementFee,jdbcType=DOUBLE},
+      </if>
+      <if test="investorsRebate != null" >
+        investors_rebate = #{investorsRebate,jdbcType=DOUBLE},
+      </if>
+      <if test="classify != null" >
+        classify = #{classify,jdbcType=INTEGER},
+      </if>
+      <if test="addUersName != null" >
+        add_uers_name = #{addUersName,jdbcType=INTEGER},
+      </if>
+      <if test="audit != null" >
+        audit = #{audit,jdbcType=INTEGER},
+      </if>
+      <if test="auditTime != null" >
+        audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditRemarks != null" >
+        audit_remarks = #{auditRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="tenderStatus != null" >
+        tender_status = #{tenderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="contractNo != null" >
+        contract_no = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=INTEGER},
+      </if>
+      <if test="levelId != null" >
+        level_id = #{levelId,jdbcType=INTEGER},
+      </if>
+      <if test="recommendItem != null" >
+        recommend_item = #{recommendItem,jdbcType=TINYINT},
+      </if>
+      <if test="financingDeadline != null" >
+        financing_deadline = #{financingDeadline,jdbcType=INTEGER},
+      </if>
+      <if test="fullDate != null" >
+        full_date = #{fullDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.Product" >
+    update products
+    set name = #{name,jdbcType=VARCHAR},
+      deadline = #{deadline,jdbcType=INTEGER},
+      annual_rate = #{annualRate,jdbcType=DOUBLE},
+      repayment = #{repayment,jdbcType=INTEGER},
+      minamount = #{minamount,jdbcType=DOUBLE},
+      tender_sum_ratio = #{tenderSumRatio,jdbcType=DOUBLE},
+      upload_information_id = #{uploadInformationId,jdbcType=VARCHAR},
+      product_num = #{productNum,jdbcType=VARCHAR},
+      service_fee = #{serviceFee,jdbcType=DOUBLE},
+      investors_management_fee = #{investorsManagementFee,jdbcType=DOUBLE},
+      transfer_management_fee = #{transferManagementFee,jdbcType=DOUBLE},
+      investors_rebate = #{investorsRebate,jdbcType=DOUBLE},
+      classify = #{classify,jdbcType=INTEGER},
+      add_uers_name = #{addUersName,jdbcType=INTEGER},
+      audit = #{audit,jdbcType=INTEGER},
+      audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      audit_remarks = #{auditRemarks,jdbcType=VARCHAR},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      tender_status = #{tenderStatus,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DOUBLE},
+      contract_no = #{contractNo,jdbcType=VARCHAR},
+      period = #{period,jdbcType=INTEGER},
+      level_id = #{levelId,jdbcType=INTEGER},
+      recommend_item = #{recommendItem,jdbcType=TINYINT},
+      financing_deadline = #{financingDeadline,jdbcType=INTEGER},
+      full_date = #{fullDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
